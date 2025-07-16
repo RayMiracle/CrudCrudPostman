@@ -58,8 +58,8 @@ git clone https://github.com/RayMiracle/CrudCrudPostman.git
 
 ### 3. Set up baseURL Environment Variable
 
-1. In Postman, select the **Unicorn CRUD Environment** from the environment dropdown in the top-right corner
-2. Go to the **Environments** tab in the left sidebar, select **Unicorn CRUD Environment**
+1. In Postman, select the **Test** from the environment dropdown in the top-right corner
+2. Go to the **Environments** tab in the left sidebar, select **Test**
 3. Locate the `baseURL` variable
 4. Generate a new endpoint from [CrudCrud.com](https://crudcrud.com/). Copy the base URL (e.g., `https://crudcrud.com/api/YOUR_UNIQUE_HASH`) and paste it into the **CURRENT VALUE** field for `baseURL`
 5. Click **Save** (Ctrl/Cmd + S)
