@@ -66,7 +66,7 @@ git clone https://github.com/RayMiracle/CrudCrudPostman.git
 
 ### 4. Initial Collection Variables (Optional)
 
-While the scripts handle initialization, for a clean start, you can verify/set `getCallCount` and `deleteCallCount` to `0` in the **Unicorn CRUD Collection's Variables** tab.
+While the scripts handle initialization, for a clean start, you can verify/set `getCallCount` and `deleteCallCount` to `0` in the **UnicornFarm Collection's Variables** tab.
 
 ## ▶️ How to Run the Collection
 
