@@ -2,10 +2,9 @@
 	"info": {
 		"_postman_id": "1dc165d2-3156-4496-b5e3-c80d2a4e7b1f",
 		"name": "UnicornFarm",
-		"description": "## Postman Collection: Unicorn CRUD Automation\n\nThis Postman collection is designed to automate **Create, Read, Update, and Delete (CRUD)** operations for a unicorn API, ensuring data integrity and API functionality.\n\n---\n\n### Key Features & Workflow:\n\n- **Create Unicorn:** Adds a new unicorn resource.\n    \n- **Check New Unicorn Data:** Verifies the details of the newly created unicorn, including a **status code (200)** and comprehensive **schema validation** of the response body. It also saves the **full response body** and the `_id` of the created unicorn into collection variables (`fullApiResponse` and `unicornId`) for subsequent requests.\n    \n- **Update Unicorn Data:** Modifies the existing unicorn's data using the `unicornId`.\n    \n- **Check Unicorn New Data:** Confirms the unicorn's data has been successfully updated, performing **status code (200)** and **deep equality checks** against the previously saved response data (with updates applied).\n    \n- **Delete Unicorn:** Removes the unicorn resource using its `unicornId`.\n    \n- **Check Unicorn Does Not Exist:** Verifies that the unicorn has been successfully deleted by attempting to retrieve it, expecting a **404 Not Found** status code.\n    \n- **Dynamic Flow Control:** Utilizes `postman.setNextRequest()` logic within tests to intelligently control the execution order, **skipping redundant requests** and ensuring a streamlined, efficient test run.\n    \n- **Variable Management:** Leverages an **environment variable (**`baseURL`**)** for API endpoint flexibility and **collection variables (**`unicornId`**,** **`fullApiResponse`**, **`getCallCount`**, **`deleteCallCount`**) for data persistence and sequential test execution tracking across requests.\n    \n- **Robust Validations:** Incorporates **status code assertions**, **Ajv JSON schema validations** for response structure, and **deep equality checks** for response body content verification.\n    \n- **Automated Cleanup:** Includes logic to **clear all collection variables** at the end of the test run, ensuring a clean state for subsequent executions.",
+		"description": "## Postman Collection: Unicorn CRUD Automation\n\nThis Postman collection is designed to automate **Create, Read, Update, and Delete (CRUD)** operations for a unicorn API, ensuring data integrity and API functionality.\n\n---\n\n### Key Features & Workflow:\n\n- **Create Unicorn:** Adds a new unicorn resource.\n    \n- **Check New Unicorn Data:** Verifies the details of the newly created unicorn, including a **status code (200)** and comprehensive **schema validation** of the response body. It also saves the **full response body** and the `_id` of the created unicorn into collection variables (`fullApiResponse` and `unicornId`) for subsequent requests.\n    \n- **Update Unicorn Data:** Modifies the existing unicorn's data using the `unicornId`.\n    \n- **Check Unicorn New Data:** Confirms the unicorn's data has been successfully updated, performing **status code (200)** and **deep equality checks** against the previously saved response data (with updates applied).\n    \n- **Delete Unicorn:** Removes the unicorn resource using its `unicornId`.\n    \n- **Check Unicorn Does Not Exist:** Verifies that the unicorn has been successfully deleted by attempting to retrieve it, expecting a **404 Not Found** status code.\n    \n- **Dynamic Flow Control:** Utilize `pm.execution.setNextRequest()` logic within tests to intelligently control the execution order, **skipping redundant requests** and ensuring a streamlined, efficient test run.\n    \n- **Variable Management:** Leverages an **environment variable (**`baseURL`**)** for API endpoint flexibility and **collection variables (**`unicornId`**,** **`fullApiResponse`**, **`getCallCount`**, **`deleteCallCount`**) for data persistence and sequential test execution tracking across requests.\n    \n- **Robust Validations:** Incorporates **status code assertions**, **Ajv JSON schema validations** for response structure, and **deep equality checks** for response body content verification.\n    \n- **Automated Cleanup:** Includes logic to **clear all collection variables** at the end of the test run, ensuring a clean state for subsequent executions.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "18553258",
-		"_collection_link": "https://www.postman.com/dummyteam-6534/workspace/radim-blek-crudcrud-com/collection/18553258-1dc165d2-3156-4496-b5e3-c80d2a4e7b1f?action=share&source=collection_link&creator=18553258"
+		"_exporter_id": "18553258"
 	},
 	"item": [
 		{
@@ -104,13 +103,20 @@
 							"}"
 						],
 						"type": "text/javascript",
-						"packages": {}
+						"packages": {},
+						"requests": {}
 					}
 				}
 			],
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\r\n    \"name\": \"Alfa Test\",\r\n    \"age\": 21,\r\n    \"colour\": \"grey\"\r\n}",
@@ -205,7 +211,8 @@
 							"}"
 						],
 						"type": "text/javascript",
-						"packages": {}
+						"packages": {},
+						"requests": {}
 					}
 				},
 				{
@@ -215,13 +222,20 @@
 							""
 						],
 						"type": "text/javascript",
-						"packages": {}
+						"packages": {},
+						"requests": {}
 					}
 				}
 			],
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "{{BaseURL}}/unicorns/{{unicornId}}",
 					"host": [
@@ -267,7 +281,8 @@
 							"console.log(\"PUT Request Body (excluding _id):\", savedApiResponse);"
 						],
 						"type": "text/javascript",
-						"packages": {}
+						"packages": {},
+						"requests": {}
 					}
 				},
 				{
@@ -282,13 +297,20 @@
 							"pm.execution.setNextRequest(\"Get the new unicorn\");"
 						],
 						"type": "text/javascript",
-						"packages": {}
+						"packages": {},
+						"requests": {}
 					}
 				}
 			],
 			"request": {
 				"method": "PUT",
-				"header": [],
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
 					"raw": "{}",
@@ -376,13 +398,20 @@
 							"}"
 						],
 						"type": "text/javascript",
-						"packages": {}
+						"packages": {},
+						"requests": {}
 					}
 				}
 			],
 			"request": {
 				"method": "DELETE",
-				"header": [],
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "{{BaseURL}}/unicorns/{{unicornId}}",
 					"host": [
@@ -403,6 +432,7 @@
 			"script": {
 				"type": "text/javascript",
 				"packages": {},
+				"requests": {},
 				"exec": [
 					""
 				]
@@ -413,6 +443,7 @@
 			"script": {
 				"type": "text/javascript",
 				"packages": {},
+				"requests": {},
 				"exec": [
 					""
 				]
